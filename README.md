@@ -188,11 +188,11 @@ dataset missing or something incorrect or out of date, please submit an [issue o
 <td>Hashimshony 2012</td>
 <td> 96 </td>
 <td> CEL-Seq</td>
-<td> <a href="https://github.com/Munfred/wormcells-site/releases/download/cao2017/cao2017.h5ad">  Download <br> 136MB </a> </td>
-<td>Blastomere cells</td>
-<td> <a href="https://doi.org/10.1126/science.aam8940">A lineage-resolved molecular atlas of C. elegans embryogenesis at single-cell resolution </a> Science 2019.</td>
-<td> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98561">GSE98561 </a> and <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4318946">GSM4318946 (reprocessed)</a>  </td>
-<td> GSM4318946 release was a reannotation of the data 
+<td> - </td>
+<td>embryonic  cells</td>
+<td> <a href="https://doi.org/10.1016/j.celrep.2012.08.003">CEL-Seq: single-cell RNA-Seq by multiplexed linear amplification </a> Cell Rep. 2012</td>
+<td> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP014672">SRP014672 </a>  </td>
+<td> This was one of the pioneering works in scRNAseq and introduced the CEL-Seq technique.  
 </td>
 </tr>
 </table>
