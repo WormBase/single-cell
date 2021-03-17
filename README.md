@@ -109,7 +109,7 @@ dataset missing or something incorrect or out of date, please submit an [issue o
 <td> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98561">GSE98561 </a> and <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4318946">GSM4318946 (reprocessed)</a>  </td>
 <td> GSM4318946 release was a reannotation of the data </td>
 </tr>
-
+</table>
 # How WormBase processes single cell RNA data: scvi-tools
 
 
