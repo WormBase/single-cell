@@ -1,8 +1,47 @@
-# single-cell
+# WormBase single cell tools
 
-[cengen-de](https://www.cengen-de.textpressolab.com/)
+This page is a showcase of ideas for single cell tools for WormBase (and eventually the Alliance) that we are working on.
+
+Please note that everything is in different stages of development and some of the tools may be clunky.
+
+But pleastry these tools out, we want your feedback to improve them! You can write to Eduardo at eduardo@wormbase.org or submit a ticket at for the [https://wormbase.org/tools/support](wormbase helpdesk)(select "feature request" as the topic).
 
 
+
+
+
+# Tools currently being developed
+The current plans for WormBase single cell tools were discussed in a seminar by Eduardo da Veiga Beltrame on March 22. [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing)
+
+### scdefg: Interactive differential expression for custom cell type groupings 
+
+**Status:** Late stage of development, soon to be available on pip and preprint released
+**Repository:** [https://github.com/Munfred/scdefg](https://github.com/Munfred/scdefg)
+**Deployments:**
+[cengen-de](https://www.cengen-de.textpressolab.com/): Deploy with the CeNGEN dataset
+**Current plans:**
+- Add menu for selecting cells across multiple distinct conditions
+- Release on pip 
+- Integrate CeNGEN and Packer 2019 data
+
+### Gene abundance histograms stratified by cell type and experiment
+
+**Status:**
+**Repository:** 
+**Deployments:**
+**Current plans:**
+
+### Heatmaps & dot plots for mean gene expression across select genes & cell types
+**Status:**
+**Repository:** 
+**Deployments:**
+**Current plans:**
+
+### Swarm plots to visualize mean gene expression for many genes in every cell type
+**Status:**
+**Repository:** 
+**Deployments:**
+**Current plans:**
 
 # How WormBase processes single cell RNA data: scvi-tools
 
