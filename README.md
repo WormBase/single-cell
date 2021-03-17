@@ -189,7 +189,7 @@ dataset missing or something incorrect or out of date, please submit an [issue o
 <td> 96 </td>
 <td> CEL-Seq</td>
 <td> - </td>
-<td>embryonic  cells</td>
+<td>Blastomere cells</td>
 <td> <a href="https://doi.org/10.1016/j.celrep.2012.08.003">CEL-Seq: single-cell RNA-Seq by multiplexed linear amplification </a> Cell Rep. 2012</td>
 <td> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP014672">SRP014672 </a>  </td>
 <td> This was one of the pioneering works in scRNAseq and introduced the CEL-Seq technique.  
