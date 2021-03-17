@@ -1,6 +1,6 @@
 # WormBase single cell tools
 
-This page is a showcase of ideas for single cell tools for WormBase (and eventually the Alliance) that we are working on.
+This page is a showcase of ideas for single cell tools for WormBase (and eventually the [Alliance](https://www.alliancegenome.org/)) that we are working on.
 
 Please note that everything is in different stages of development and some of the tools may be clunky.
 
