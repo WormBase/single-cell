@@ -6,7 +6,7 @@
 
 # How WormBase processes single cell RNA data: scvi-tools
 
-There are currently hundreds of software tools and pipelines developed for scRNAseq data (see: [https://www.scrna-tools.org/](scrna-tools.org). For processing single sell data at WormBase we have chosen to use the[https://scvi-tools.org](scvi-tools.org) framework. scvi-tools is different from most other scRNAseq tools in that it uses [variational autoencoders](https://arxiv.org/abs/1906.02691) to learn the distribution underlying the input data and create a generative model.  Interested readers can learn more in about the framework in the scvi-tools [documentation](https://docs.scvi-tools.org/en/stable/). Here we briefly highlight a few considerations that lead to our choice of using the the framework for driving scRNAseq analysis.
+There are currently hundreds of software tools and pipelines developed for scRNAseq data (see: [https://www.scrna-tools.org](scrna-tools.org)). For processing single sell data at WormBase we have chosen to use the[https://scvi-tools.org](scvi-tools.org) framework. scvi-tools is different from most other scRNAseq tools in that it uses [variational autoencoders](https://arxiv.org/abs/1906.02691) to learn the distribution underlying the input data and create a generative model.  Interested readers can learn more in about the framework in the scvi-tools [documentation](https://docs.scvi-tools.org/en/stable/). Here we briefly highlight a few considerations that lead to our choice of using the the framework for driving scRNAseq analysis.
 
 - Scalability: Using a GPU, scvi-tools can scale to datasets with millions of cells. These large models can be trained in about an hour.
 
