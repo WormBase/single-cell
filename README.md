@@ -13,9 +13,13 @@ But please, try these tools out, we want your feedbackon how to improve them! Yo
 # Tools currently being developed
 The current plans for WormBase single cell tools were discussed in a seminar by Eduardo da Veiga Beltrame on March 22. [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing)
 
-### scdefg: Interactive differential expression for custom cell type groupings 
+## scdefg: Interactive differential expression 
 
-**Status:** Late stage of development, soon to be available on pip and preprint released
+The *scdefg* app consists of a single web page initially displaying a short description, a text input of genes to be highlighted in the output volcano plot, and two lists of cell types to be selected. After submission results are displayed in the form of an interactive volcano plot displaying gene descriptions and two sortable tabular views of the p-values and log fold changes of expression levels showing enriched and depleted genes. The tabular results can be exported to csv and Excel format, or copied to the clipboard.
+
+The app takes a pre-trained scVI mode as input. Training an scVI model is usually quick on GPUs and needs to be done only once, while the differential expression analysis performed on the fly by *scdefg* is less computationally intensive and does not necessarily require GPUs. At WormBase, we have deployed the app on an AWS t2.large cloud instance with only 8GB RAM and 2 vCPU. This basic configuration is sufficient for handling a few concurrent users with results being returned within 15s. 
+ 
+ **Status:** Late stage of development, soon to be available on pip and preprint released
 
 **Repository:** [https://github.com/Munfred/scdefg](https://github.com/Munfred/scdefg)
 
@@ -27,7 +31,8 @@ The current plans for WormBase single cell tools were discussed in a seminar by 
 - Release on pip 
 - Integrate CeNGEN and Packer 2019 data
 
-### Gene abundance histograms stratified by cell type and experiment
+## Gene abundance histograms 
+Visualize gene abundances stratified by cell type and experiment
 
 **Status:**  
 
@@ -37,7 +42,8 @@ The current plans for WormBase single cell tools were discussed in a seminar by 
 
 **Current plans:** 
 
-### Heatmaps & dot plots for mean gene expression across select genes & cell types
+## Heatmaps & dot plots  
+Visualize mean gene expression across select genes & cell types
 
 **Status:**
 
@@ -47,7 +53,8 @@ The current plans for WormBase single cell tools were discussed in a seminar by 
 
 **Current plans:**
 
-### Swarm plots to visualize mean gene expression for many genes in every cell type
+## Swarm plots 
+Visualize mean gene expression for many genes in every cell type
 
 **Status:**  
 
