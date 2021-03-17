@@ -4,7 +4,7 @@ This page is a showcase of ideas for single cell tools for WormBase (and eventua
 
 Please note that everything is in different stages of development and some of the tools may be clunky.
 
-But pleastry these tools out, we want your feedback to improve them! You can write to Eduardo at eduardo@wormbase.org or submit a ticket at for the [wormbase helpdesk](https://wormbase.org/tools/support)(select "feature request" as the topic).
+But please, try these tools out, we want your feedbackon how to improve them! You can write to Eduardo at eduardo@wormbase.org or submit a ticket at for the [wormbase helpdesk](https://wormbase.org/tools/support)(select "feature request" as the topic).
 
 
 
