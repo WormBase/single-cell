@@ -17,19 +17,19 @@ The current plans for WormBase single cell tools were discussed in a seminar by 
 
 **Status:** Late stage of development, soon to be available on pip and preprint released
 **Repository:** [https://github.com/Munfred/scdefg](https://github.com/Munfred/scdefg)
-**Deployments:**
+**Deployments:**  
 [cengen-de](https://www.cengen-de.textpressolab.com/): Deploy with the CeNGEN dataset
-**Current plans:**
+**Current plans:**  
 - Add menu for selecting cells across multiple distinct conditions
 - Release on pip 
 - Integrate CeNGEN and Packer 2019 data
 
 ### Gene abundance histograms stratified by cell type and experiment
 
-**Status:**
-**Repository:** 
-**Deployments:**
-**Current plans:**
+**Status:**  
+**Repository:**   
+**Deployments:**  
+**Current plans:** 
 
 ### Heatmaps & dot plots for mean gene expression across select genes & cell types
 **Status:**
@@ -38,10 +38,10 @@ The current plans for WormBase single cell tools were discussed in a seminar by 
 **Current plans:**
 
 ### Swarm plots to visualize mean gene expression for many genes in every cell type
-**Status:**
-**Repository:** 
-**Deployments:**
-**Current plans:**
+**Status:**  
+**Repository:**  
+**Deployments:**  
+**Current plans:**  
 
 # How WormBase processes single cell RNA data: scvi-tools
 
