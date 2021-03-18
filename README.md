@@ -23,29 +23,27 @@ The app takes a pre-trained scVI mode as input. Training an scVI model is usuall
 
 **Repository:** [https://github.com/Munfred/scdefg](https://github.com/Munfred/scdefg)
 
-**Deployments:**  
-- [cengen-de](https://www.cengen-de.textpressolab.com/): Deploy with the CeNGEN dataset  
+**Deployment:**  [cengen-de](https://www.cengen-de.textpressolab.com/): Deploy with the CeNGEN dataset  
 
-**Current plans:**  
-- Add menu for selecting cells across multiple distinct conditions
-- Release on pip 
-- Integrate CeNGEN and Packer 2019 data
-
-## Gene abundance histograms 
-Visualize gene abundances stratified by cell type and experiment
-
-**Status:**  
-
-**Repository:**   
-
-**Deployments:**  
-
-**Current plans:** 
+**Current plans:** 1) Add menu for selecting cells across multiple distinct conditions. 2) Release on pip. 3) Integrate CeNGEN and Packer 2019 data for next deployment.
 
 ## Heatmaps & dot plots  
 Visualize mean gene expression across select genes & cell types
 
-**Status:**
+
+**Status:**  This tool is still in the early stages of development. We have a demonstration deployment showing whtat the tool is proposed to look like. A heatmap with an interactive mouseover showing assitional information about cell type and gene description. However it is still lacking a menu to allow the used to choose which cell types and genes to visualize.
+
+**Repository:**   
+
+**Demonstration deployment:** http://cervino.caltech.edu:3000/  
+
+**Current plans:** 1) Create a common backend framework for data selection (choosing cell types and genes to visualize). 2) Release on pip. 3) Integrate CeNGEN and Packer 2019 data for next deployment.  
+
+
+## Ridgeline Gene abundance histograms 
+Visualize gene abundances stratified by cell type and experiment
+
+**Status:** Still in idea stage. Our goal is to link to this plot from a gene page, and it will show the gene abundance on each cell type and on each dataset for which we have data on that gene. The plots will be implemented with the D3.js library: https://www.d3-graph-gallery.com/graph/ridgeline_template.html
 
 **Repository:** 
 
