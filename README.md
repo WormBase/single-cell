@@ -34,7 +34,7 @@ The app takes a pre-trained scVI mode as input. Training an scVI model is usuall
 
 ## single-cell-visualization-tools: Framework for static data
 
-This tool is still in the early stages of development. It is meant to take in a large csv file with the precomputed gene abundance data and then display the user gene and cell type selection in the desired visualization. We have a demonstration deployment that is undergoing rapid development. The plots will be implemented with the [D3.js library](https://www.d3-graph-gallery.com/graph/ridgeline_template.html)
+This tool is still in the early stages of development. It is meant to take in a large csv file with the precomputed gene abundance data and then display the user gene and cell type selection in the desired visualization. We have a demonstration deployment that is undergoing rapid development. The plots will be implemented with the [D3.js library](https://www.d3-graph-gallery.com/)
 
 **Repository:**   [https://github.com/WormBase/single-cell-visualization-tools](https://github.com/WormBase/single-cell-visualization-tools)
 
@@ -45,14 +45,16 @@ This tool is still in the early stages of development. It is meant to take in a 
 ### Heatmaps & dot plots  
 Visualize mean gene expression across select genes & cell types
 
-
+Dotplots are similar to heatmaps except instead of colored squares they show the data in the form of circles of different sizes. An example of a dotplot as created by Seurat can be seen [here](https://user-images.githubusercontent.com/26942963/57797680-cbd54300-76ff-11e9-8184-4b8edf4ab169.png).  
  
+
+**Status:** Initial heatmap, with ability to select genes and cell types to visualize already implemented. Dotplots are currently not implemented yet.
 
 
 ### Ridgeline Gene abundance histograms 
 Visualize gene abundances stratified by cell type and experiment
 
-**Status:** Still in idea stage. Our goal is to link to this plot from a gene page, and it will show the gene abundance on each cell type and on each dataset for which we have data on that gene. 
+**Status:** Still in idea stage. Our goal is to link to this plot from a gene page, and it will show the gene abundance on each cell type and on each dataset for which we have data on that gene. They will look like the [D3.js library ridge plots](https://www.d3-graph-gallery.com/graph/ridgeline_template.html). Examples of ridgeplots for single cell data can be seen in this [Seurat vignette](https://satijalab.org/seurat/articles/hashing_vignette.html)
 
 ### Swarm plots 
 Visualize expression of a gene across all cell types relative to one cell type. These plots are useful for identifying candidate marker genes!
