@@ -129,7 +129,7 @@ dataset missing or something incorrect or out of date, please submit an [issue o
 <td> <a href="https://github.com/Munfred/wormcells-site/releases/download/bendavid2020/bendavid2020.h5ad">  Download <br> 145MB </a> </td>
 <td> L2 larvae</td>
 <td> <a href="https://doi.org/10.1101/2020.08.23.263798">Whole-organism mapping of the genetics of gene expression at cellular resolution </a> biorxiv 2020.</td>
-<td> - </td>
+<td> <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA658829/">PRJNA658829 </a> </td>
 <td> Gene count matrix was kindly provided by the authors on request
 </td>
 </tr>
