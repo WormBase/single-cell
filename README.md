@@ -11,7 +11,7 @@ But please try these tools, we want your feedback on how to improve them! You ca
 
 
 # Tools currently being developed
-The current plans for WormBase single cell tools were discussed in a seminar by Eduardo da Veiga Beltrame on March 22. [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing)
+The current plans for WormBase single cell tools were discussed in a seminar by Eduardo da Veiga Beltrame on March 22. [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing) and [link to presentation video](https://www.youtube.com/watch?v=TymnrF_b59A), single cell discussion starts at 19m30s.
 
 Because differential expression between arbitrary groups cannot be pre-computed (there would be too many possibilities),  we created the `scdefg` app for doing it using scvi-tools on the backend.
 
