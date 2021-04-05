@@ -211,8 +211,9 @@ As possible, we attempt to keep the field names lower case, short, descriptive, 
 Below we provide a standard description of the mandatory fields we use in all datasets, plus some common optional ones that we have used so far (not all). Our goal is to standartize the naming convention for frequently used fields so that code may be reused without headaches changing variable names.
 
 ### `adata.var`: genes, gene id 
-|Field name | Description | Type | Example value | Required?|
+|Field name | Description | Type | Example value | Optionality|
 |-----------|-------------|------|-------|-----|
-| `adata.var.index` | Contains the WormBase gene ID | string | `WBGene00010957`| Required|
-| `adata.var.gene_id` | Contains the WormBase gene ID | string | `WBGene00010957`|Required
-| `adata.var.gene_name` | Contains the WormBase gene name | string | `nduo-6 `|Required|
+| `adata.var.index` | WormBase gene ID, must be unique | string | `WBGene00010957`| Required|
+| `adata.var.gene_id` | WormBase gene ID, repeat values from index | string | `WBGene00010957`|Required
+| `adata.var.gene_name` | WormBase gene name | string | `nduo-6 `|Required|
+| `adata.var.gene_description` | WormBase short gene description. Full list available for download [here](https://www.alliancegenome.org/downloads) | string | `nduo-6 `|Required|
