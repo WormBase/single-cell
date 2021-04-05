@@ -222,9 +222,13 @@ Below we provide a standard description of the mandatory fields we use in all da
 |Field name | Description | Type | Example value | Optionality|
 |-----------|-------------|------|-------|-----|
 | `adata.var.index` | The batch name joined with cell barcode witha `+` char | string | `F4_1+TGTAACGGTTAGCTAC-1 `| Required|
-| `adata.obs.batch` | The run that produced the corresponding barcode. Most of the time batch and experiment will be the same, but with multiplexing sometimes an one batch can have multiple experiments | categorical string | `AAACCCAAGATCGCTT-1`|Required|
-| `adata.obs.batch` | The biological experiment performed | categorical string | `AAACCCAAGATCGCTT-1`|Required|
+| `adata.var.study` | A unique shorthand for the study that published the data, ideally in the style <first author><year> all lower case. The .h5ad file should have the same name as the study it corresponds to  | string | `taylor2020`| Required|
+| `adata.obs.batch` | The run that produced the corresponding barcode. Most of the time batch and experiment will be the same, but with multiplexing sometimes an one batch can have multiple experiments | categorical string | `F4_1-1`|Required|
+| `adata.obs.batch` | The biological experiment performed | categorical string | `F4_1`|Required|
 | `adata.obs.barcode` | The cell barcode | string | `AAACCCAAGATCGCTT-1`|Required|
+| `adata.obs.cell_type` | The cell type annotation provided by the authors. Should be `not provided` if not available | string | `AAACCCAAGATCGCTT-1`|Required|
+| `adata.obs.cell_subtype` | The cell subtype annotation if provided by the authors | string | `BWM_head_row_1`|Optional|
+| `adata.obs.tissue` | The tissue annotation if provided by the authors | string | `Intestine`|Optional|
 
-
+For now we are trying to keep these guidelines simple so that we can easily stick to them. Going forward we will update them as we learn from experience. For example, at some point WormBase may start uniformly reprocessing the data, so a version field may be needed in the adata.uns
 
