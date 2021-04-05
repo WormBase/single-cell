@@ -208,12 +208,23 @@ This is a curated collection of all C. elegans single cell RNA seq high throughp
 
 As possible, we attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` 
 
-Below we provide a standard description of the mandatory fields we use in all datasets, plus some common optional ones that we have used so far (not all). Our goal is to standartize the naming convention for frequently used fields so that code may be reused without headaches changing variable names.
+Below we provide a standard description of the mandatory fields we use in all datasets, plus some common optional ones that we have used so far (not all). Our goal is to standartize the naming convention for frequently used fields so that code may be reused without headaches changing variable names. The .h5ad file should only contain genes and cells with at least one count.
 
-### `adata.var`: genes, gene id 
+### `adata.var`: gene IDs, names and descriptions 
 |Field name | Description | Type | Example value | Optionality|
 |-----------|-------------|------|-------|-----|
 | `adata.var.index` | WormBase gene ID, must be unique | string | `WBGene00010957`| Required|
 | `adata.var.gene_id` | WormBase gene ID, repeat values from index | string | `WBGene00010957`|Required
 | `adata.var.gene_name` | WormBase gene name | string | `nduo-6 `|Required|
-| `adata.var.gene_description` | WormBase short gene description. Full list available for download [here](https://www.alliancegenome.org/downloads) | string | `nduo-6 `|Required|
+| `adata.var.gene_description` | WormBase short gene description. Full list available for download [here](https://www.alliancegenome.org/downloads) | string | `Predicted to have NADH dehydrogenase (ubiquinone) activity. Predicted to localize to integral component of membrane; mitochondrial membrane; and respirasome.`|Required|
+
+### `adata.obs`: cell barcode, experiment, batch, original study, cell type
+|Field name | Description | Type | Example value | Optionality|
+|-----------|-------------|------|-------|-----|
+| `adata.var.index` | The batch name joined with cell barcode witha `+` char | string | `F4_1+TGTAACGGTTAGCTAC-1 `| Required|
+| `adata.obs.batch` | The run that produced the corresponding barcode. Most of the time batch and experiment will be the same, but with multiplexing sometimes an one batch can have multiple experiments | categorical string | `AAACCCAAGATCGCTT-1`|Required|
+| `adata.obs.batch` | The biological experiment performed | categorical string | `AAACCCAAGATCGCTT-1`|Required|
+| `adata.obs.barcode` | The cell barcode | string | `AAACCCAAGATCGCTT-1`|Required|
+
+
+
