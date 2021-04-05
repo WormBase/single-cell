@@ -204,6 +204,15 @@ dataset missing or something incorrect or out of date, please submit an [issue o
 
 ## Data wrangling conventions
 
-This is a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into the (anndata)[https://anndata.readthedocs.io/en/stable/] format in `.h5ad` files with standard fields, plus any number of optional fields that vary depending on the metadata the authors provide. At a minimum the anndata objects contain:
+This is a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into the [anndata](https://anndata.readthedocs.io/en/stable/) format in `.h5ad` files with standard fields, plus any number of optional fields that vary depending on the metadata the authors provide. 
 
-### `adata.var`: genes
+As possible, we attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` 
+
+Below we provide a standard description of the mandatory fields we use in all datasets, plus some common optional ones that we have used so far (not all). Our goal is to standartize the naming convention for frequently used fields so that code may be reused without headaches changing variable names.
+
+### `adata.var`: genes, gene id 
+|Field name | Description | Type | Example value | Required?|
+|-----------|-------------|------|-------|-----|
+| `adata.var.index` | Contains the WormBase gene ID | string | `WBGene00010957`| Required|
+| `adata.var.gene_id` | Contains the WormBase gene ID | string | `WBGene00010957`|Required
+| `adata.var.gene_name` | Contains the WormBase gene name | string | `nduo-6 `|Required|
