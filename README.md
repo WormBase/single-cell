@@ -202,4 +202,8 @@ dataset missing or something incorrect or out of date, please submit an [issue o
 </table>
 </font>
 
+## Data wrangling conventions
 
+This is a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into the (anndata)[https://anndata.readthedocs.io/en/stable/] format in `.h5ad` files with standard fields, plus any number of optional fields that vary depending on the metadata the authors provide. At a minimum the anndata objects contain:
+
+### `adata.var`: genes
