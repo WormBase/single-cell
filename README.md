@@ -103,7 +103,7 @@ This is a curated collection of all C. elegans single cell RNA seq high throughp
 
 As possible, we attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` 
 
-
+For the convention used to wrangle the h5ad files see https://github.com/WormBase/single-cell/blob/main/data_wrangling_convention.md
 
 <font size="1" face="Arial">
 <table style="margin-left:auto;margin-right:auto;" class="tbl" cellspacing="0" cellpadding="0" >
