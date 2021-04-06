@@ -14,7 +14,7 @@ Below we provide a standard description of the mandatory fields we use in all da
 | `adata.var.index` | WormBase gene ID, must be unique | string | `WBGene00010957`| Required|
 | `adata.var.gene_id` | WormBase gene ID, repeat values from index | string | `WBGene00010957`|Required
 | `adata.var.gene_name` | WormBase gene name | string | `nduo-6 `|Required|
-| `adata.var.gene_description` | WormBase short gene description. Full list available for download [here](https://www.alliancegenome.org/downloads) | string | `Predicted to have NADH dehydrogenase (ubiquinone) activity. Predicted to localize to integral component of membrane; mitochondrial membrane; and respirasome.`|Required|
+| `adata.var.gene_description` | WormBase short gene description. Full list available for download [here](https://www.alliancegenome.org/downloads) | string | `Predicted to have NADH dehydrogenase (ubiquinone) activity. Predicted to localize to integral component of membrane; mitochondrial membrane; and respirasome.`|Optional|
 
 ### `adata.obs`: cell barcode, experiment, batch, original study, cell type
 |Field name | Description | Type | Example value | Optionality|
