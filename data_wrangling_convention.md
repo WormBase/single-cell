@@ -21,7 +21,7 @@ Below we provide a standard description of the mandatory fields we use in all da
 |-----------|-------------|------|-------|-----|
 | `adata.var.index` | The batch name joined with cell barcode witha `+` char | string | `F4_1+TGTAACGGTTAGCTAC-1 `| Required|
 | `adata.var.study` | A unique shorthand for the study that published the data, ideally in the style <first author><year> all lower case. The .h5ad file should have the same name as the study it corresponds to.  | categorical | `taylor2020`| Required|
-| `adata.obs.batch` | The run that produced the corresponding barcode. Most of the time batch and experiment will be the same, but with multiplexing sometimes an one batch can have multiple experiments | categorical | `F4_1`|Required|
+| `adata.obs.sample_batch` | The run that produced the corresponding barcode. Most of the time batch and experiment will be the same, but with multiplexing sometimes an one batch can have multiple experiments | categorical | `F4_1`|Required|
 | `adata.obs.sample` | The biological sample that is in this batch | categorical string | `L2 larvae fourth repeat`|Required|
 | `adata.obs.sample_description` | Description of the sample. This is mandatory because otherwise it will be very easy to confuse two samples from their name without carefully reading the paper or contacting authors | categorical string | `F4_1`|Required|
 | `adata.obs.barcode` | The cell barcode | string | `AAACCCAAGATCGCTT-1`|Required|
