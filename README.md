@@ -1,21 +1,18 @@
 # WormBase single cell tools
 
-This page is a showcase of ideas for single cell tools for WormBase (and eventually the [Alliance](https://www.alliancegenome.org/)) that we are working on.
+This page is a showcase of ideas for single cell tools for WormBase (and eventually the [Alliance](https://www.alliancegenome.org/)) that we are working on. These tools are in the final stages of development and made available for testing. If you have feedback you can write to Eduardo at eduardo@wormbase.org.
 
-Everything is in different stages of development and some of the tools may be clunky.
+**scdefg**: Because differential expression between arbitrary groups cannot be pre-computed (there would be too many possibilities) this app performs differential expression on demand using [scvi-tools](https://scvi-tools.org) on the backend.
 
-But please try these tools, we want your feedback on how to improve them! You can write to Eduardo at eduardo@wormbase.org or submit a ticket at for the [wormbase helpdesk](https://wormbase.org/tools/support) (select "feature request" as the topic).
+**wormcells-viz**: For other kinds of visualizations of gene abundance static data, which can be precomputed and then only requires slicing a large table of values to render the results. Currently these static visualizations are heatmaps, dotplots, ridgeline plots, and swarm plots. 
 
+### Talks
+- Plans for WormBase single cell tools were discussed on 2021-03-22. [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing) and [link to presentation video](https://www.youtube.com/watch?v=TymnrF_b59A), single cell discussion starts at 19m30s.
 
-
-
-
-# Tools currently being developed
-The current plans for WormBase single cell tools were discussed in a seminar by Eduardo da Veiga Beltrame on March 22. [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing) and [link to presentation video](https://www.youtube.com/watch?v=TymnrF_b59A), single cell discussion starts at 19m30s.
+- An update on development status ahead of preprint and production deploys were given at a talk on 2021-06-03. [Link to slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing)
 
 Because differential expression between arbitrary groups cannot be pre-computed (there would be too many possibilities),  we created the `scdefg` app for doing it using scvi-tools on the backend.
 
-For other kinds of visualizations of gene abundance static data, which can be precomputed and then only requires slicing a large table of values to render the results, we are working on a single frameowrk for multiple kinds of visualization currently called `single-cell-visualization-tools`. Currently these static visualizations are heatmaps, dotplots, ridgeline plots, and swarm plots. 
 
 ## scdefg: Interactive differential expression 
 
@@ -29,32 +26,26 @@ The app takes a pre-trained scVI mode as input. Training an scVI model is usuall
 
 **Deployment:**  [cengen-de](https://www.cengen-de.textpressolab.com/) where you can perform differential expression on the CeNGEN dataset  
 
-**Current plans:** 1) Add menu for selecting cells across multiple distinct conditions. 2) Release on pip. 3) Integrate CeNGEN and Packer 2019 data for next deployment.
+**Current plans:** Release on pip and public deploy with all C. elegans 10x scRNAseq data
 
 
-## single-cell-visualization-tools: Framework for static data
+## wormcells-viz: Framework for static data
 
 This tool is still in the early stages of development. It is meant to take in a large csv file with the precomputed gene abundance data and then display the user gene and cell type selection in the desired visualization. We have a demonstration deployment that is undergoing rapid development. The plots will be implemented with the [D3.js library](https://www.d3-graph-gallery.com/)
 
 **Repository:**   [https://github.com/WormBase/single-cell-visualization-tools](https://github.com/WormBase/single-cell-visualization-tools)
 
-**Demonstration deployment:** [http://cervino.caltech.edu:3000/](http://cervino.caltech.edu:3000/) and [http://cervino.caltech.edu:3001/heatmap](http://cervino.caltech.edu:3001/heatmap)
+**Demonstration deployment:** [http://cervino.caltech.edu:3000/](http://cervino.caltech.edu:3000/) 
+
+**Status:** Development of new features is done, the tool is being tested and documentation is being written for a public deploy. 
 
 **Current plans:** 1) Create a common backend framework for data selection (choosing cell types and genes to visualize). 2) Release on pip. 3) Integrate CeNGEN and Packer 2019 data for next deployment. 
 
 ### Heatmaps & dot plots  
-Visualize mean gene expression across select genes & cell types
-
-Dotplots are similar to heatmaps except instead of colored squares they show the data in the form of circles of different sizes. An example of a dotplot as created by Seurat can be seen [here](https://user-images.githubusercontent.com/26942963/57797680-cbd54300-76ff-11e9-8184-4b8edf4ab169.png).  
- 
-
-**Status:** Initial heatmap, with ability to select genes and cell types to visualize already implemented. Dotplots are currently not implemented yet.
-
+Visualize mean gene expression across select genes & cell types. Dotplots are similar to heatmaps except instead of colored squares they show the data in the form of circles of different sizes. 
 
 ### Ridgeline Gene abundance histograms 
 Visualize gene abundances stratified by cell type and experiment
-
-**Status:** Still in idea stage. Our goal is to link to this plot from a gene page, and it will show the gene abundance on each cell type and on each dataset for which we have data on that gene. They will look like the [D3.js library ridge plots](https://www.d3-graph-gallery.com/graph/ridgeline_template.html). Examples of ridgeplots for single cell data can be seen in this [Seurat vignette](https://satijalab.org/seurat/articles/hashing_vignette.html)
 
 ### Swarm plots 
 Visualize expression of a gene across all cell types relative to one cell type. These plots are useful for identifying candidate marker genes!
@@ -62,12 +53,6 @@ Visualize expression of a gene across all cell types relative to one cell type. 
 - Y axis: a set of selected genes, evenly spaced
 - X axis: the log fold change of expression of that gene on all cell types, relative to the cell of interest. 
 - 0 = baseline expression on reference cell type, <0 means lower expression in that cell type relative to reference, >0 means higher expression in cell type relative to reference
-
-For example, here are two swarm plots using the ASJ and ASH neurons from CeNGEN data as the reference cells, and showing the expression patterns across all tissues for the top 100 enriched genes on ASJ and ASH. Known markers for both of these cells are plotted in red:
-- [Example with ASH neuron as reference](https://htmlpreview.github.io/?https://github.com/WormBase/single-cell/blob/main/examples/swarmplot_example_ASH_top_100_genes.html)
-- [Example with ASJ neuron as reference](https://htmlpreview.github.io/?https://github.com/WormBase/single-cell/blob/main/examples/swarmplot_example_ASJ_top_100_genes.html)
-
-**Status:** Still in idea stage. Our goal is to allow the user to provide a list of genes and to allow for plotting a subset of reference genes in a different color if desired. For example, the list of genes to plot could be the output of differential expression performed with the scdefg app. Mouseover will display mouseover on each dot displays the cell type, gene name, the baseline expression of the gene in that cell, and the log fold change relative to the baseline expression.
 
 
 # How WormBase processes single cell RNA data: scvi-tools
@@ -93,7 +78,7 @@ At the moment, the majority of scRNAseq data is generated using the 10X Genomics
 
 # List of C. elegans single cell datasets
 
-Here we provide a handy collection of all publicly available C. elegans single cell and single nucleus RNA sequencing data. In addition to listing studies and the original data sources, for convenience the data has been repackaged and a direct download link to the data in [.h5ad](https://anndata.readthedocs.io/en/latest/) format is provided. The GitHub repository of this website is [https://github.com/WormBase/single-cell](https://github.com/WormBase/single-cell), and the .h5ad files are hosted as releases [here](https://github.com/Munfred/wormcells-data/releases). If you see a
+Here we provide a collection of all publicly available C. elegans single cell and single nucleus RNA sequencing data. In addition to listing studies and the original data sources, for convenience the data has been repackaged and a direct download link to the data in [.h5ad](https://anndata.readthedocs.io/en/latest/) format is provided. The GitHub repository of this website is [https://github.com/WormBase/single-cell](https://github.com/WormBase/single-cell), and the .h5ad files are hosted as releases [here](https://github.com/Munfred/wormcells-data/releases). If you see a
 dataset missing or something incorrect or out of date, please submit an [issue on GitHub](https://github.com/WormBase/single-cell/issues).
 
 
@@ -103,7 +88,7 @@ This is a curated collection of all C. elegans single cell RNA seq high throughp
 
 As possible, we attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` 
 
-For the convention used to wrangle the h5ad files see https://github.com/WormBase/single-cell/blob/main/data_wrangling_convention.md
+The WormBase anndata wrangling convention is describede at [https://github.com/WormBase/anndata-wrangling](https://github.com/WormBase/anndata-wrangling)
 
 <font size="1" face="Arial">
 <table style="margin-left:auto;margin-right:auto;" class="tbl" cellspacing="0" cellpadding="0" >
@@ -122,7 +107,7 @@ For the convention used to wrangle the h5ad files see https://github.com/WormBas
 <td>Taylor 2020</td>
 <td> 100,955 </td>
 <td> 10x v2/v3</td>
-<td> <a href="https://github.com/Munfred/wormcells-site/releases/download/taylor2020/taylor2020.h5ad">  Download <br> 364MB </a> </td>
+<td> <a href="https://data.caltech.edu/records/1977">  Download at Caltech Data </a> </td>
 <td> L4 larvae neurons selected via flow cytometry </td>
 <td> <a href="https://doi.org/10.1101/2020.12.15.422897">Molecular topography of an entire nervous system. </a> </td>
 <td> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136049">GSE136049</a> </td>
@@ -133,27 +118,14 @@ For the convention used to wrangle the h5ad files see https://github.com/WormBas
 
 
 <tr>
-<td>Ben-David 2020</td>
+<td>Ben-David 2021</td>
 <td> 55,508 </td>
 <td> 10x v2</td>
-<td> <a href="https://github.com/Munfred/wormcells-site/releases/download/bendavid2020/bendavid2020.h5ad">  Download <br> 145MB </a> </td>
+<td> <a href="https://data.caltech.edu/records/1972">  Download at Caltech Data </a> </td>
 <td> L2 larvae</td>
 <td> <a href="https://doi.org/10.1101/2020.08.23.263798">Whole-organism mapping of the genetics of gene expression at cellular resolution </a> biorxiv 2020.</td>
 <td> <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA658829/">PRJNA658829 </a> </td>
 <td> Gene count matrix was kindly provided by the authors on request
-</td>
-</tr>
-
-<tr>
-<td>Taylor 2019</td>
-<td> 65,450 </td>
-<td> 10x v2/v3</td>
-<td> <a href="https://github.com/Munfred/wormcells-site/releases/download/taylor2019/taylor2019.h5ad">  Download <br> 217MB </a> </td>
-<td> L4 larvae neurons selected via flow cytometry </td>
-<td> <a href="https://doi.org/10.1101/737577">Expression profiling of the mature C. elegans nervous system by single-cell RNA-Sequencing </a> biorxiv 2019.</td>
-<td> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136049">GSE136049</a> </td>
-<td> <a href="https://cengen.org">CeNGEN website </a> 
-<a href="http://cengen.shinyapps.io/SCeNGEA"> Shiny R app to explore the data </a>
 </td>
 </tr>
 
@@ -162,7 +134,7 @@ For the convention used to wrangle the h5ad files see https://github.com/WormBas
 <td>Packer 2019</td>
 <td> 89,701 </td>
 <td> 10x v2</td>
-<td> <a href="https://github.com/Munfred/wormcells-site/releases/download/packer2019/packer2019.h5ad"> Download <br> 653MB </a> </td>
+<td> <a href="https://data.caltech.edu/records/1945"> Download at Caltech Data </a> </td>
 <td> Several timepoints of embryo development</td>
 <td> <a href="https://science.sciencemag.org/content/365/6459/eaax1971.long">A lineage-resolved molecular atlas of C. elegans embryogenesis at single-cell resolution </a> Science 2019.</td>
 <td> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE126954">GSE126954</a> </td>
