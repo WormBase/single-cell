@@ -54,6 +54,7 @@ Visualize expression of a gene across all cell types relative to one cell type. 
 - X axis: the log fold change of expression of that gene on all cell types, relative to the cell of interest. 
 - 0 = baseline expression on reference cell type, <0 means lower expression in that cell type relative to reference, >0 means higher expression in cell type relative to reference
 
+A Colab tutorial on how to make these plots is available at: https://github.com/Munfred/worm-markers 
 
 # How WormBase processes single cell RNA data: scvi-tools
 
