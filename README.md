@@ -22,9 +22,12 @@ The app takes a pre-trained scVI mode as input. Training an scVI model is usuall
  
  **Status:** Late stage of development, soon to be available on pip and preprint released
 
-**Repository:** [https://github.com/Munfred/scdefg](https://github.com/Munfred/scdefg)
+**Repository:** [https://github.com/WormBase/scdefg](https://github.com/WormBase/scdefg)
 
-**Deployment:**  [cengen-de](https://www.cengen-de.textpressolab.com/) where you can perform differential expression on the CeNGEN dataset  
+**Deployment:** 
+- Current version: http://18.223.180.183:1337/ test deploy with all C. elegans scRNAseq 10x v2/v3 data - [download trained model here](https://github.com/Munfred/wormcells-data/releases/tag/packer2019taylor2020cendavid2021_model) 
+- OLD VERSION: [cengen-de](https://www.cengen-de.textpressolab.com/) where you can perform differential expression on the CeNGEN dataset. 
+
 
 **Current plans:** Release on pip and public deploy with all C. elegans 10x scRNAseq data
 
@@ -52,9 +55,11 @@ Visualize expression of a gene across all cell types relative to one cell type. 
 
 - Y axis: a set of selected genes, evenly spaced
 - X axis: the log fold change of expression of that gene on all cell types, relative to the cell of interest. 
-- 0 = baseline expression on reference cell type, <0 means lower expression in that cell type relative to reference, >0 means higher expression in cell type relative to reference
+- 0 = baseline expression on reference cell type, 
+- < 0 means lower expression in that cell type relative to reference
+- > 0 means higher expression in cell type relative to reference
 
-A Colab tutorial on how to make these plots is available at: https://github.com/Munfred/worm-markers 
+A Colab tutorial on how to make swarm plots is available at: https://github.com/Munfred/worm-markers 
 
 # How WormBase processes single cell RNA data: scvi-tools
 
