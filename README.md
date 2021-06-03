@@ -7,9 +7,9 @@ This page is a showcase of ideas for single cell tools for WormBase (and eventua
 **wormcells-viz**: For other kinds of visualizations of gene abundance static data, which can be precomputed and then only requires slicing a large table of values to render the results. Currently these static visualizations are heatmaps, dotplots, ridgeline plots, and swarm plots. 
 
 ### Talks
-- Plans for WormBase single cell tools were discussed on 2021-03-22. [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing) and [link to presentation video](https://www.youtube.com/watch?v=TymnrF_b59A), single cell discussion starts at 19m30s.
+- 2021-03-22 [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing) Plans for WormBase single cell tools [link to presentation video](https://www.youtube.com/watch?v=TymnrF_b59A), single cell discussion starts at 19m30s.
 
-- An update on development status ahead of preprint and production deploys were given at a talk on 2021-06-03. [Link to slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing)
+- 2021-06-03. [Link to slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing) Update on development status ahead of preprint and production deploys
 
 Because differential expression between arbitrary groups cannot be pre-computed (there would be too many possibilities),  we created the `scdefg` app for doing it using scvi-tools on the backend.
 
