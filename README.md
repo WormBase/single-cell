@@ -8,16 +8,18 @@ A list of the _C. elegans_ scRNAseq data made available with these tools is at t
 
 ## scdefg: Interactive differential expression 
 
-**Repository:** [https://github.com/WormBase/scdefg](https://github.com/WormBase/scdefg)
-
 **Deployment with public _C. elegans_ data**: _(coming very soon)_
 
-The `scdefg` app is written in Python using Flask, and provides a single web page with an interface for selecting two groups of cells according to the existing annotations in the data. For example, the user can select a group according to a combination of cell type, sample, tissue and experimental group. Results are displayed in the form of an interactive volcano plot (log fold change vs p-value) and MA plot (log fold change vs mean expression) that display gene descriptions upon mouseover, and two sortable tabular views of the p-values and log fold changes of expression levels showing enriched and depleted genes. The tabular results can be downloaded in csv and Excel format or copied to the clipboard. The app can be launched from the command line by specifying the path to a trained scVI model and the user may specify data annotations by which the groups may be stratified (e.g. cell type, experiment). Differential expression is performed on the fly and can be done  in reasonable time without using GPUs. We have deployed the app on a cloud instance with only 8GB RAM and 2 vCPUs and observed this configuration is sufficient for handling a few concurrent users with results being returned in about 15s. 
+The [`scdefg`](https://github.com/WormBase/scdefg) app is written in Python using Flask, and provides a single web page with an interface for selecting two groups of cells according to the existing annotations in the data. For example, the user can select a group according to a combination of cell type, sample, tissue and experimental group. Results are displayed in the form of an interactive volcano plot (log fold change vs p-value) and MA plot (log fold change vs mean expression) that display gene descriptions upon mouseover, and two sortable tabular views of the p-values and log fold changes of expression levels showing enriched and depleted genes. The tabular results can be downloaded in csv and Excel format or copied to the clipboard. The app can be launched from the command line by specifying the path to a trained scVI model and the user may specify data annotations by which the groups may be stratified (e.g. cell type, experiment). Differential expression is performed on the fly and can be done  in reasonable time without using GPUs. We have deployed the app on a cloud instance with only 8GB RAM and 2 vCPUs and observed this configuration is sufficient for handling a few concurrent users with results being returned in about 15s. 
 
 
 
-## wormcells-viz: Framework for static data
+## wormcells-viz: Visualization of gene expression rates
 
+### Deployments 
+- **CeNGEN L4 neuron data**: _(coming very soon)_
+- **Packer 2019 embryogenesis data**: _(coming very soon)_
+- **Ben-David 2021 L2 larvae data**: _(coming very soon)_
 
 The `wormcells-viz` app is written in Javascript and Python and uses [React.js](https://reactjs.org/}) and [D3.js](https://d3js.org) for providing interactive and responsive visualizations of heatmaps, gene expression histograms and swarm plots (see below). Deploying the app requires having the pre-computed gene expression values stored in three custom anndata files as described in the the [wormcells-viz repository](https://github.com/WormBase/wormcells-viz). The following visualizations are currently implemented. 
 
