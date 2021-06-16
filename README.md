@@ -1,57 +1,40 @@
 # WormBase single cell tools
 
-This page is a showcase of ideas for single cell tools for WormBase (and eventually the [Alliance](https://www.alliancegenome.org/)) that we are working on. These tools are in the final stages of development and made available for testing. If you have feedback you can write to Eduardo at eduardo@wormbase.org.
+WormBase has developed two tools for exploring published _C. elegans_ single cell RNA sequencing (scRNAseq) data: `scdefg` for interactive differential expression and `wormcells-viz` for visualization of gene expression. These tools have been deployed at WormBase with public _C. elegans_ datasets and will continue to be updated as new datasets are published. Source code is available at [github.com/WormBase/scdefg](https://github.com/WormBase/scdefg/) and [github.com/WormBase/wormcells-viz](https://github.com/WormBase/wormcells-viz), together with instructions on how to deploy these tools with any scRNAseq dataset.
 
-**scdefg**: Because differential expression between arbitrary groups cannot be pre-computed (there would be too many possibilities) this app performs differential expression on demand using [scvi-tools](https://scvi-tools.org) on the backend.
+For a detailed overview, a 45 min talk given on June 3, 2021 explains the tools and current outlook [talk video](https://youtu.be/AGJqm_EIqA8)[slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing).
 
-**wormcells-viz**: For other kinds of visualizations of gene abundance static data, which can be precomputed and then only requires slicing a large table of values to render the results. Currently these static visualizations are heatmaps, dotplots, ridgeline plots, and swarm plots. 
-
-### Talks
-- 2021-03-22 [Link to slides](https://docs.google.com/presentation/d/1wQyG6Ww75HRPizOojnGb6N5rx4RH8_DIZXiX83ddD4w/edit?usp=sharing) Plans for WormBase single cell tools [link to presentation video](https://www.youtube.com/watch?v=TymnrF_b59A), single cell discussion starts at 19m30s.
-
-- 2021-06-03. [Link to slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing) Update on development status ahead of preprint and production deploys
-
-Because differential expression between arbitrary groups cannot be pre-computed (there would be too many possibilities),  we created the `scdefg` app for doing it using scvi-tools on the backend.
-
+A list of the _C. elegans_ scRNAseq data made available with these tools is at the end of this page. 
 
 ## scdefg: Interactive differential expression 
 
-The `scdefg` app consists of a single web page initially displaying a short description, a text input of genes to be highlighted in the output volcano plot, and two lists of cell types to be selected. After submission results are displayed in the form of an interactive volcano plot displaying gene descriptions and two sortable tabular views of the p-values and log fold changes of expression levels showing enriched and depleted genes. The tabular results can be exported to csv and Excel format, or copied to the clipboard.
-
-The app takes a pre-trained scVI mode as input. Training an scVI model is usually quick on GPUs and needs to be done only once, while the differential expression analysis performed on the fly by *scdefg* is less computationally intensive and does not necessarily require GPUs. At WormBase, we have deployed the app on an AWS t2.large cloud instance with only 8GB RAM and 2 vCPU. This basic configuration is sufficient for handling a few concurrent users with results being returned within 15s. 
- 
- **Status:** Late stage of development, soon to be available on pip and preprint released
-
 **Repository:** [https://github.com/WormBase/scdefg](https://github.com/WormBase/scdefg)
 
-**Deployment:** 
-- Current version: http://18.223.180.183:1337/ test deploy with all C. elegans scRNAseq 10x v2/v3 data - [download trained model here](https://github.com/Munfred/wormcells-data/releases/tag/packer2019taylor2020cendavid2021_model) 
-- OLD VERSION: [cengen-de](https://www.cengen-de.textpressolab.com/) where you can perform differential expression on the CeNGEN dataset. 
+**Deployment with public _C. elegans_ data**: _(coming very soon)_
 
+The `scdefg` app is written in Python using Flask, and provides a single web page with an interface for selecting two groups of cells according to the existing annotations in the data. For example, the user can select a group according to a combination of cell type, sample, tissue and experimental group. Results are displayed in the form of an interactive volcano plot (log fold change vs p-value) and MA plot (log fold change vs mean expression) that display gene descriptions upon mouseover, and two sortable tabular views of the p-values and log fold changes of expression levels showing enriched and depleted genes. The tabular results can be downloaded in csv and Excel format or copied to the clipboard. The app can be launched from the command line by specifying the path to a trained scVI model and the user may specify data annotations by which the groups may be stratified (e.g. cell type, experiment). Differential expression is performed on the fly and can be done  in reasonable time without using GPUs. We have deployed the app on a cloud instance with only 8GB RAM and 2 vCPUs and observed this configuration is sufficient for handling a few concurrent users with results being returned in about 15s. 
 
-**Current plans:** Release on pip and public deploy with all C. elegans 10x scRNAseq data
 
 
 ## wormcells-viz: Framework for static data
 
-This tool is still in the early stages of development. It is meant to take in a large csv file with the precomputed gene abundance data and then display the user gene and cell type selection in the desired visualization. We have a demonstration deployment that is undergoing rapid development. The plots will be implemented with the [D3.js library](https://www.d3-graph-gallery.com/)
 
-**Repository:**   [https://github.com/WormBase/single-cell-visualization-tools](https://github.com/WormBase/single-cell-visualization-tools)
+The `wormcells-viz` app is written in Javascript and Python and uses [React.js](https://reactjs.org/}) and [D3.js](https://d3js.org) for providing interactive and responsive visualizations of heatmaps, gene expression histograms and swarm plots (see below). Deploying the app requires having the pre-computed gene expression values stored in three custom anndata files as described in the the [wormcells-viz repository](https://github.com/WormBase/wormcells-viz). The following visualizations are currently implemented. 
 
-**Demonstration deployment:** [http://cervino.caltech.edu:3000/](http://cervino.caltech.edu:3000/) 
+### Heatmap
 
-**Status:** Development of new features is done, the tool is being tested and documentation is being written for a public deploy. 
+Visualization of scVI inferred expression rates for a selection of cell types and genes. The expression rates can be shown as either a traditional heatmap, or as a monochrome dotplot.
 
-**Current plans:** 1) Create a common backend framework for data selection (choosing cell types and genes to visualize). 2) Release on pip. 3) Integrate CeNGEN and Packer 2019 data for next deployment. 
+### Gene expression histogram
 
-### Heatmaps & dot plots  
-Visualize mean gene expression across select genes & cell types. Dotplots are similar to heatmaps except instead of colored squares they show the data in the form of circles of different sizes. 
+Histograms of the scVI inferred expression rates for a given gene across all cell types in the data. The histogram bin counts are computed from the scVI inferred expression rates for each cell. 
 
-### Ridgeline Gene abundance histograms 
-Visualize gene abundances stratified by cell type and experiment
 
-### Swarm plots 
-Visualize expression of a gene across all cell types relative to one cell type. These plots are useful for identifying candidate marker genes!
+### Swarm plot
+
+For a given cell type, swarm plots visualize the relative expression of a set of genes across all cells annotated in a dataset. These plots are useful for identifying candidate marker genes. 
+
+The Y axis displays the set of selected genes, and the X axis displays the log fold change in gene expression between the cell type of interest and all other cell types. This is computed by doing pairwise differential expression of each annotated cell type vs the cell type of interest. 
 
 - Y axis: a set of selected genes, evenly spaced
 - X axis: the log fold change of expression of that gene on all cell types, relative to the cell of interest. 
@@ -59,11 +42,11 @@ Visualize expression of a gene across all cell types relative to one cell type. 
 - < 0 means lower expression in that cell type relative to reference
 - > 0 means higher expression in cell type relative to reference
 
-A Colab tutorial on how to make swarm plots is available at: https://github.com/Munfred/worm-markers 
+A Colab tutorial on how to make swarm plots is available [here](https://colab.research.google.com/github/Munfred/worm-markers/blob/master/2021_06_01_example_swarmplot_Finding_C_elegans_neuron_markers_with_the_CeNGEN_dataset.ipynb) 
 
 # How WormBase processes single cell RNA data: scvi-tools
 
-There are currently hundreds of software tools and pipelines developed for scRNAseq data (see [https://www.scrna-tools.org](scrna-tools.org)). For processing single sell data at WormBase we have chosen to use the [scvi-tools.org](https://scvi-tools.org) framework. scvi-tools is different from most other scRNAseq tools in that it uses [variational autoencoders](https://arxiv.org/abs/1906.02691) to learn the distribution underlying the input data and create a generative model.  Interested readers can learn more in about the framework in the scvi-tools [documentation](https://docs.scvi-tools.org/en/stable/). Here we briefly highlight a few considerations that lead to our choice of using the the framework for driving scRNAseq analysis.
+There are currently hundreds of software tools and pipelines developed for scRNAseq data (see [https://www.scrna-tools.org](scrna-tools.org)). For processing single cell data at WormBase we have chosen to use the [scvi-tools.org](https://scvi-tools.org) framework. scvi-tools is different from most other scRNAseq tools in that it uses [variational autoencoders](https://arxiv.org/abs/1906.02691) to learn the distribution underlying the input data and create a generative model.  Interested readers can learn more in about the framework in the scvi-tools [documentation](https://docs.scvi-tools.org/en/stable/). Here we briefly highlight a few considerations that lead to our choice of using the the framework for driving scRNAseq analysis.
 
 - **Scalability:** Using a GPU, scvi-tools can scale to datasets with millions of cells. These large models can be trained in about an hour.
 
@@ -73,28 +56,18 @@ There are currently hundreds of software tools and pipelines developed for scRNA
 
 # WormBase deployment philosophy for single cell tools
 
-At the moment, the majority of scRNAseq data is generated using the 10X Genomics Chromium technology v2 and v3 chemistry (see [Svensson 2020: A curated database reveals trends in single-cell transcriptomics ](https://doi.org/10.1093/database/baaa073). This is also true for C. elegans scRNAseq data. At least for the time being WormBase will focus development efforts on scRNAseq tools to 10X Genomics data. Two considerations drive this:
+At the moment, the majority of scRNAseq data is generated using the 10X Genomics Chromium technology, with v2 and v3 chemistry. This is also true for _C. elegans_ scRNAseq data. For the time being WormBase will focus development efforts on scRNAseq tools on 10X Genomics data. Two considerations drive this:
 
-- Data integration of different batches with scvi-tools is more robust when there is more data, and when the technology and biological system from the different batches is more  similar. Attempting to integrate a small number of cells from niche technologies and unique biological systems could lead to potentital artifacts and pitfalls and will not be done. For example, the Hashimony 2012 and Tintori 2016 datasets listed below will not be integrated. Niche technologies or small numbers of cells require a case by case treatment,and attempting integration with these datasets could lead to a situation where it is impossible to discern biological differences from technical artifacts.
+- Data integration of different batches with scvi-tools is more robust when there is more data, and when the technology and biological system of each batch is the same or similar. Attempting to integrate a small number of cells from unique technologies and unique biological systems can make it impossible to discern biological differences from technical artifacts.
 
-- The 10X Genomics data has a widely used, validated and commercially supported data pre-processing workflow, from FASTQ files to gene count matrices. As such, if WormBase decides to uniformly reprocess the FASTQ files in the future, it is ideal that the data pre-processing pipeline is the same for all datasets.
+- The 10X Genomics data has a widely used, validated and commercially supported data pre-processing workflow, from FASTQ files to gene count matrices. This can enable WormBase to uniformly reprocess the FASTQ files in a single pipeline in the future.
 
 
 
 
 # List of C. elegans single cell datasets
 
-Here we provide a collection of all publicly available C. elegans single cell and single nucleus RNA sequencing data. In addition to listing studies and the original data sources, for convenience the data has been repackaged and a direct download link to the data in [.h5ad](https://anndata.readthedocs.io/en/latest/) format is provided. The GitHub repository of this website is [https://github.com/WormBase/single-cell](https://github.com/WormBase/single-cell), and the .h5ad files are hosted as releases [here](https://github.com/Munfred/wormcells-data/releases). If you see a
-dataset missing or something incorrect or out of date, please submit an [issue on GitHub](https://github.com/WormBase/single-cell/issues).
-
-
-## Data wrangling conventions
-
-This is a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into the [anndata](https://anndata.readthedocs.io/en/stable/) format in `.h5ad` files with standard fields, plus any number of optional fields that vary depending on the metadata the authors provide. 
-
-As possible, we attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` 
-
-The WormBase anndata wrangling convention is describede at [https://github.com/WormBase/anndata-wrangling](https://github.com/WormBase/anndata-wrangling)
+Here we provide a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into the [anndata](https://anndata.readthedocs.io/en/stable/) format in `.h5ad` files with standard fields, plus any number of optional fields that vary depending on the metadata the authors provide. We attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` . The WormBase anndata wrangling convention is described at [github.com/WormBase/anndata-wrangling](https://github.com/WormBase/anndata-wrangling)
 
 <font size="1" face="Arial">
 <table style="margin-left:auto;margin-right:auto;" class="tbl" cellspacing="0" cellpadding="0" >
