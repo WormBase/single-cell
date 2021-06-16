@@ -36,11 +36,11 @@ For a given cell type, swarm plots visualize the relative expression of a set of
 
 The Y axis displays the set of selected genes, and the X axis displays the log fold change in gene expression between the cell type of interest and all other cell types. This is computed by doing pairwise differential expression of each annotated cell type vs the cell type of interest. 
 
-- Y axis: a set of selected genes, evenly spaced
-- X axis: the log fold change of expression of that gene on all cell types, relative to the cell of interest. 
-- 0 = baseline expression on reference cell type, 
-- < 0 means lower expression in that cell type relative to reference
-- > 0 means higher expression in cell type relative to reference
+-  Y axis: a set of selected genes, evenly spaced
+-  X axis: the log fold change of expression of that gene on all cell types, relative to the cell of interest. 
+-  0 = baseline expression on reference cell type, 
+-  below 0 means lower expression in that cell type relative to reference
+-  above 0 means higher expression in cell type relative to reference
 
 A Colab tutorial on how to make swarm plots is available [here](https://colab.research.google.com/github/Munfred/worm-markers/blob/master/2021_06_01_example_swarmplot_Finding_C_elegans_neuron_markers_with_the_CeNGEN_dataset.ipynb) 
 
