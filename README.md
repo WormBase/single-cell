@@ -1,27 +1,22 @@
 # WormBase single cell tools
 
-WormBase has developed two tools for exploring published _C. elegans_ single cell RNA sequencing (scRNAseq) data: `scdefg` for interactive differential expression and `wormcells-viz` for visualization of gene expression. These tools have been deployed at WormBase with public _C. elegans_ datasets and will continue to be updated as new datasets are published. Source code is available at [github.com/WormBase/scdefg](https://github.com/WormBase/scdefg/) and [github.com/WormBase/wormcells-viz](https://github.com/WormBase/wormcells-viz), together with instructions on how to deploy these tools with any scRNAseq dataset.
+WormBase has developed two tools for exploring published _C. elegans_ single cell RNA sequencing (scRNAseq) data: `scdefg` for *interactive differential expression on integrated datasets* and `wormcells-viz` for *visualization of gene expression*. These tools have been deployed at WormBase with public _C. elegans_ datasets and will continue to be updated as new datasets are published. Source code is available at [github.com/WormBase/scdefg](https://github.com/WormBase/scdefg/) and [github.com/WormBase/wormcells-viz](https://github.com/WormBase/wormcells-viz), together with instructions on how to deploy these tools with any scRNAseq dataset. For a detailed overview, see this 45 min talk that explains the tools and current outlook [[talk](https://youtu.be/AGJqm_EIqA8), [slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing)].
 
-For a detailed overview, a 45 min talk given on June 3, 2021 explains the tools and current outlook [talk video](https://youtu.be/AGJqm_EIqA8)[slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing).
 
-A list of the _C. elegans_ scRNAseq data made available with these tools is at the end of this page. 
+### Integrated Differential Expression: [scdefg.textpressolab.com](https://scdefg.textpressolab.com/)
+Three datasets (CeNGEN, Packer 2019, Ben-David 2021) have been integrated and can be compared with differential expression. 
+More information about each dataset is at the bottom of this page. 
+Additionally, you can also visualize gene expression on the annotated cell types of each datasets using the links below
 
-## scdefg: Interactive differential expression 
+### **Visualize CeNGEN L4 neuron dataset**: [cengen.textpressolab.com](https://cengen.textpressolab.com/)
+### **Visualize Packer 2019 embryogenesis dataset**: [packer2019.textpressolab.com](https://packer2019.textpressolab.com/)
+### **Visualize Ben-David 2021 L2 larvae dataset**: [bendavid2021.textpressolab.com](https://bendavid2021.textpressolab.com/)
 
-**Deployment with public _C. elegans_ data**: _(coming very soon)_
+# About the apps
 
 The [`scdefg`](https://github.com/WormBase/scdefg) app is written in Python using Flask, and provides a single web page with an interface for selecting two groups of cells according to the existing annotations in the data. For example, the user can select a group according to a combination of cell type, sample, tissue and experimental group. Results are displayed in the form of an interactive volcano plot (log fold change vs p-value) and MA plot (log fold change vs mean expression) that display gene descriptions upon mouseover, and two sortable tabular views of the p-values and log fold changes of expression levels showing enriched and depleted genes. The tabular results can be downloaded in csv and Excel format or copied to the clipboard. The app can be launched from the command line by specifying the path to a trained scVI model and the user may specify data annotations by which the groups may be stratified (e.g. cell type, experiment). Differential expression is performed on the fly and can be done  in reasonable time without using GPUs. We have deployed the app on a cloud instance with only 8GB RAM and 2 vCPUs and observed this configuration is sufficient for handling a few concurrent users with results being returned in about 15s. 
 
-
-
-## wormcells-viz: Visualization of gene expression rates
-
-### Deployments 
-- **CeNGEN L4 neuron data**: _(coming very soon)_
-- **Packer 2019 embryogenesis data**: _(coming very soon)_
-- **Ben-David 2021 L2 larvae data**: _(coming very soon)_
-
-The `wormcells-viz` app is written in Javascript and Python and uses [React.js](https://reactjs.org/}) and [D3.js](https://d3js.org) for providing interactive and responsive visualizations of heatmaps, gene expression histograms and swarm plots (see below). Deploying the app requires having the pre-computed gene expression values stored in three custom anndata files as described in the the [wormcells-viz repository](https://github.com/WormBase/wormcells-viz). The following visualizations are currently implemented. 
+The [`wormcells-viz`](https://github.com/WormBase/wormcells-viz) app is written in Javascript and Python and uses [React.js](https://reactjs.org/}) and [D3.js](https://d3js.org) for providing interactive and responsive visualizations of heatmaps, gene expression histograms and swarm plots (see below). Deploying the app requires having the pre-computed gene expression values stored in three custom anndata files as described in the the [wormcells-viz repository](https://github.com/WormBase/wormcells-viz). The following visualizations are currently implemented. 
 
 ### Heatmap
 
@@ -67,7 +62,7 @@ At the moment, the majority of scRNAseq data is generated using the 10X Genomics
 
 
 
-# List of C. elegans single cell datasets
+# List of all C. elegans single cell datasets
 
 Here we provide a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into the [anndata](https://anndata.readthedocs.io/en/stable/) format in `.h5ad` files with standard fields, plus any number of optional fields that vary depending on the metadata the authors provide. We attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` . The WormBase anndata wrangling convention is described at [github.com/WormBase/anndata-wrangling](https://github.com/WormBase/anndata-wrangling)
 
