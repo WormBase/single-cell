@@ -1,4 +1,4 @@
-# WormBase single cell tools
+<img width="2463" alt="WormBase single cell tools" src="https://user-images.githubusercontent.com/12504176/122630927-3e9e0e80-d07c-11eb-9126-3514ec7046a5.png">
 
 WormBase has developed two tools for exploring published _C. elegans_ single cell RNA sequencing (scRNAseq) data: `scdefg` for *interactive differential expression on integrated datasets* and `wormcells-viz` for *visualization of gene expression*. These tools have been deployed at WormBase with public _C. elegans_ datasets and will continue to be updated as new datasets are published. Source code is available at [github.com/WormBase/scdefg](https://github.com/WormBase/scdefg/) and [github.com/WormBase/wormcells-viz](https://github.com/WormBase/wormcells-viz), together with instructions on how to deploy these tools with any scRNAseq dataset. For a detailed overview, see this 45 min talk that explains the tools and current outlook [[talk](https://youtu.be/AGJqm_EIqA8), [slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing)].
 
