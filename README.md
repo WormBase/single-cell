@@ -67,9 +67,14 @@ At the moment, the majority of scRNAseq data is generated using the 10X Genomics
 
 
 
-# List of all C. elegans single cell datasets
+# List of all C. elegans single cell datasets in anndata format
 
-Here we provide a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into the [anndata](https://anndata.readthedocs.io/en/stable/) format in `.h5ad` files with standard fields, plus any number of optional fields that vary depending on the metadata the authors provide. We attempt to keep the field names lower case, short, descriptive, and only using valid Python variable names so they may be accessed via the syntax `adata.var.field_name` . The WormBase anndata wrangling convention is described at [github.com/WormBase/anndata-wrangling](https://github.com/WormBase/anndata-wrangling)
+The [anndata](https://anndata.readthedocs.io/en/stable/) format (extension `.h5ad`) was published in [2018](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1382-0) as a generic class for handling annotated data matrices, with a focus on scRNA-seq data and Python support for machine learning, and with integration with the [SCANPY](https://scanpy.readthedocs.io/en/stable/) analysis framework. Anndata is an efficient storage format because it uses HDF5 compression, and has come to be the standard format for manipulating scRNAseq data in Python, as well as providing support in [R](https://cran.r-project.org/web/packages/anndata/index.html)(see also [zellkonverter](https://github.com/theislab/zellkonverter).
+
+
+Owing to the advantages of anndata and its popularity, WormBase adopted a convention for structuring published _C. elegans_ scRNAseq data into anndata files with standard field names, to streamline their reuse in code pipelines. The guidelines used when wrangling data into the WormBase anndata convention are described in the supplemental tables and maintained  at [github.com/WormBase/anndata-wrangling](https://github.com/WormBase/anndata-wrangling).
+
+Here we provide a curated collection of all C. elegans single cell RNA seq high throughput data wrangled into WormBase anndata standard fields. For completeness, we also list other low throughput single cell datasets that were not wrangled.
 
 <font size="1" face="Arial">
 <table style="margin-left:auto;margin-right:auto;" class="tbl" cellspacing="0" cellpadding="0" >
