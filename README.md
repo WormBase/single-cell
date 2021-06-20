@@ -17,6 +17,9 @@ Additionally, you can also visualize gene expression on the annotated cell types
 
 # About the apps
 
+![image](https://user-images.githubusercontent.com/12504176/122685407-fdaf1280-d1bf-11eb-8172-90c2e26fae52.png)
+
+
 The [`scdefg`](https://github.com/WormBase/scdefg) app is written in Python using Flask, and provides a single web page with an interface for selecting two groups of cells according to the existing annotations in the data. For example, the user can select a group according to a combination of cell type, sample, tissue and experimental group. Results are displayed in the form of an interactive volcano plot (log fold change vs p-value) and MA plot (log fold change vs mean expression) that display gene descriptions upon mouseover, and two sortable tabular views of the p-values and log fold changes of expression levels showing enriched and depleted genes. The tabular results can be downloaded in csv and Excel format or copied to the clipboard. The app can be launched from the command line by specifying the path to a trained scVI model and the user may specify data annotations by which the groups may be stratified (e.g. cell type, experiment). Differential expression is performed on the fly and can be done  in reasonable time without using GPUs. We have deployed the app on a cloud instance with only 8GB RAM and 2 vCPUs and observed this configuration is sufficient for handling a few concurrent users with results being returned in about 15s. 
 
 The [`wormcells-viz`](https://github.com/WormBase/wormcells-viz) app is written in Javascript and Python and uses [React.js](https://reactjs.org/}) and [D3.js](https://d3js.org) for providing interactive and responsive visualizations of heatmaps, gene expression histograms and swarm plots (see below). Deploying the app requires having the pre-computed gene expression values stored in three custom anndata files as described in the the [wormcells-viz repository](https://github.com/WormBase/wormcells-viz). The following visualizations are currently implemented. 
@@ -28,7 +31,6 @@ Visualization of scVI inferred expression rates for a selection of cell types an
 ### Gene expression histogram
 
 Histograms of the scVI inferred expression rates for a given gene across all cell types in the data. The histogram bin counts are computed from the scVI inferred expression rates for each cell. 
-
 
 ### Swarm plot
 
