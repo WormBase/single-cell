@@ -164,8 +164,6 @@ Here we provide a curated collection of all C. elegans single cell RNA seq high 
 <td> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP014672">SRP014672 </a>  </td>
 <td> This was one of the pioneering works in scRNAseq and introduced the CEL-Seq technique.  
 </td>
-</tr>
-</table>
-</font>
+
 
 
