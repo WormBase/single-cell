@@ -145,7 +145,7 @@ Here we provide a curated collection of all C. elegans single cell RNA seq high 
 <td>Tintori 2016</td>
 <td> 216 </td>
 <td>SMARTer kit</td>
-<td> - </td>
+<td> Not wrangled </td>
 <td> Embryo through the 16-cell stage</td>
 <td> <a href="https://doi.org/10.1016/j.devcel.2016.07.025">A Transcriptional Lineage of the Early C. elegans Embryo </a> Dev Cell 2016.</td>
 <td> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE77944">GSE77944 </a> </td>
@@ -158,7 +158,7 @@ Here we provide a curated collection of all C. elegans single cell RNA seq high 
 <td>Hashimshony 2012</td>
 <td> 96 </td>
 <td> CEL-Seq</td>
-<td> - </td>
+<td> Not wrangled </td>
 <td>Blastomere cells</td>
 <td> <a href="https://doi.org/10.1016/j.celrep.2012.08.003">CEL-Seq: single-cell RNA-Seq by multiplexed linear amplification </a> Cell Rep. 2012</td>
 <td> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP014672">SRP014672 </a>  </td>
