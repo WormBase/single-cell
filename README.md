@@ -2,7 +2,11 @@
 
 <br>
 
-WormBase has developed two tools for exploring published _C. elegans_ single cell RNA sequencing (scRNAseq) data: `scdefg` for *interactive differential expression on integrated datasets* and `wormcells-viz` for *visualization of gene expression*. These tools have been deployed at WormBase with public _C. elegans_ datasets and will continue to be updated as new datasets are published. Source code is available at [github.com/WormBase/scdefg](https://github.com/WormBase/scdefg/) and [github.com/WormBase/wormcells-viz](https://github.com/WormBase/wormcells-viz), together with instructions on how to deploy these tools with any scRNAseq dataset. For a detailed overview, see this 45 min talk that explains the tools and current outlook [[talk](https://youtu.be/AGJqm_EIqA8), [slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing)].
+WormBase has developed two tools for exploring published _C. elegans_ single cell RNA sequencing (scRNAseq) data: `scdefg` for *interactive differential expression on integrated datasets* and `wormcells-viz` for *visualization of gene expression*. These tools have been deployed at WormBase with public _C. elegans_ datasets and will continue to be updated as new datasets are published. Source code is available at [github.com/WormBase/scdefg](https://github.com/WormBase/scdefg/) and [github.com/WormBase/wormcells-viz](https://github.com/WormBase/wormcells-viz), together with instructions on how to deploy these tools with any scRNAseq dataset. 
+
+For a detailed overview, see the [Single cell tools for WormBase](https://www.biorxiv.org/content/10.1101/2021.07.04.451030v1) preprint (July 2021). 
+
+For additional discussion see this 45 min talk from May 2021: [[talk](https://youtu.be/AGJqm_EIqA8), [slides](https://docs.google.com/presentation/d/1Kv4gPsm-wT8wH_5nAd9sFBFlI6dTvZ8O407Tnj3Gv0Q/edit?usp=sharing)].
 
 
 
