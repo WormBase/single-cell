@@ -16,7 +16,9 @@ More information about each dataset is at the bottom of this page.
 Additionally, you can also visualize gene expression on the annotated cell types of each datasets using the links below
 
 ### **Visualize CeNGEN L4 neuron dataset**: [cengen.textpressolab.com](https://cengen.textpressolab.com/)
+Or explore [Publication site ](https://www.cengen.org/cengenapp/)
 ### **Visualize Packer 2019 embryogenesis dataset**: [packer2019.textpressolab.com](https://packer2019.textpressolab.com/)
+Or explore [Publication site](https://cello.shinyapps.io/celegans/)
 ### **Visualize Ben-David 2021 L2 larvae dataset**: [bendavid2021.textpressolab.com](https://bendavid2021.textpressolab.com/)
 
 # About the apps
